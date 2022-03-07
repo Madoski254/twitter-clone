@@ -10,7 +10,8 @@ import { useRecoilState } from "recoil";
 import { modalState } from '../atoms/modalAtom';
 import  Widgets from "../components/Widgets";
 
-const Home : NextPage = ({trendingResults, followResults, providers }) => {
+
+const Home : NextPage= ({ trendingResults , followResults, providers }) => {
 
  const {data:session } = useSession();
  const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -43,7 +44,7 @@ const Home : NextPage = ({trendingResults, followResults, providers }) => {
 export default Home;
 
 //Used for dynamic content
-export async function getServerSideProps(context){
+export async function getServerSideProps(context: GetSessionParams | undefined){
   const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
     (res) => res.json()
   );
@@ -58,7 +59,9 @@ export async function getServerSideProps(context){
       trendingResults,
       followResults,
       providers,
-      session,
+      session
     },
   };
-}
+     
+    }
+ 
