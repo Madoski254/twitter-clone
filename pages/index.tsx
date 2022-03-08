@@ -10,7 +10,6 @@ import { useRecoilState } from "recoil";
 import { modalState } from '../atoms/modalAtom';
 import  Widgets from "../components/Widgets";
 import React from 'react';
-import { Props } from 'next/Script';
 
 
  const Home : NextPage = ({ trendingResults, followResults, providers } : props) => {
