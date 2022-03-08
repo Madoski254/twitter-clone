@@ -9,19 +9,20 @@ import Modal from "../components/Modal";
 import { useRecoilState } from "recoil";
 import { modalState } from '../atoms/modalAtom';
 import  Widgets from "../components/Widgets";
+import React from 'react';
+import { Props } from 'next/Script';
 
 
-const Home : NextPage= ({ trendingResults , followResults, providers }) => {
-
- const {data:session } = useSession();
- const [isOpen, setIsOpen] = useRecoilState(modalState);
+ const Home : NextPage = ({ trendingResults, followResults, providers } : props) => {
+    const {data:session } = useSession();
+    const [isOpen, setIsOpen] = useRecoilState(modalState);
 
    if(!session) return <Login  providers={providers} />
 
   return (
     <div className="">
       <Head>
-        <title>Twitter clone </title>
+        <title>Twitter clone </title> 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -33,10 +34,8 @@ const Home : NextPage= ({ trendingResults , followResults, providers }) => {
           followResults={followResults}
         />
 
-       {isOpen && <Modal /> }
-       
+       {isOpen && <Modal /> }      
     </main>
-
     </div>
   );
 }
@@ -54,14 +53,29 @@ export async function getServerSideProps(context: GetSessionParams | undefined){
   const providers = await getProviders();
   const session = await getSession(context);
 
+   
   return {
     props: {
       trendingResults,
       followResults,
       providers,
-      session
+      session,
+
+
     },
   };
-     
-    }
- 
+}
+        
+    
+
+
+/**   trendingResults:trendingResults ,
+           followResults:followResults,
+           providers:providers,
+           session:session,
+           
+           
+           */
+
+
+  
