@@ -167,10 +167,8 @@ import { HeartIcon as HeartIconFilled,  ChatIcon as ChatIconFilled,} from "@hero
             </div>
             {likes.length > 0 && (
               <span
-                className={`group-hover:text-pink-600 text-sm ${
-                  liked && "text-pink-600"
-                }`}
-              >
+                className={`group-hover:text-pink-600 text-sm ${liked && "text-pink-600" }`}>
+                            
                 {likes.length}
               </span>
             )} 
@@ -189,4 +187,4 @@ import { HeartIcon as HeartIconFilled,  ChatIcon as ChatIconFilled,} from "@hero
   )
 }
 
-export default Post
+export default Post;
