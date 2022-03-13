@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetServerSidePropsContext, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Sidebar from "../components/Sidebar";
@@ -11,8 +11,24 @@ import { modalState } from '../atoms/modalAtom';
 import  Widgets from "../components/Widgets";
 import React from 'react';
 
+type Props = {
+  trendingResults: [],
+  followResults:[],
+  session: [],
+  providers: [
+    authorization: {
+      params: {
+        prompt: "consent",
+        access_type: "offline",
+        response_type: "code"
+      }
+    }
 
- const Home : NextPage = ({ trendingResults, followResults, providers } : props) => {
+],
+
+}
+
+ const Home : NextPage<Props> = ({ trendingResults,followResults, providers }) => {
     const {data:session } = useSession();
     const [isOpen, setIsOpen] = useRecoilState(modalState);
 
@@ -42,7 +58,7 @@ import React from 'react';
 export default Home;
 
 //Used for dynamic content
-export async function getServerSideProps(context: GetSessionParams | undefined){
+export async function getServerSideProps(context: GetServerSidePropsContext){
   const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
     (res) => res.json()
   );
@@ -52,17 +68,18 @@ export async function getServerSideProps(context: GetSessionParams | undefined){
   const providers = await getProviders();
   const session = await getSession(context);
 
-   
-  return {
-    props: {
+ return  { 
+    props : {
       trendingResults,
       followResults,
       providers,
       session,
 
-
-    },
-  };
+ }
+   
+ };
+      
+    
 }
         
     
