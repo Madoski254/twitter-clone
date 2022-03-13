@@ -23,5 +23,10 @@ export default NextAuth({
 
       },
   },
-})
+
+  //Secret : procces.env.JWT_SECRET
+     secret: process.env.JWT_SECRET,
+});
+
+
 
