@@ -4,21 +4,21 @@ import { initializeApp, getApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-
-// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+// TODO: Add SDKs for Firebase products that you want to use
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBkQNxopun5A6VGxV1jKEp7HlVKi2CjY84",
-    authDomain: "twitter-clone-3d91f.firebaseapp.com",
-    projectId: "twitter-clone-3d91f",
-    storageBucket: "twitter-clone-3d91f.appspot.com",
-    messagingSenderId: "430581409498",
-    appId: "1:430581409498:web:363110b8ea777c5eade7e3",
-    measurementId: "G-2PEJZ11VC6"
-  };
+  apiKey: "AIzaSyAE3ArPWpdwDQRX1MvXRTuKUTl4OKKJHzE",
+  authDomain: "secondtwiter-3dabc.firebaseapp.com",
+  projectId: "secondtwiter-3dabc",
+  storageBucket: "secondtwiter-3dabc.appspot.com",
+  messagingSenderId: "964421307434",
+  appId: "1:964421307434:web:e9b4424db0028e31a1c753",
+  measurementId: "G-MHZ3RHNFK1"
+};
+
 
 
 // Initialize Firebase
